@@ -47,7 +47,8 @@ app.controller('ListCtrl',
             var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
             var photoUrl = "https://api.foursquare.com/v2/venues/"+dataItem.id +"/photos?client_id=WOY3TZFKEN3HJTL0ZY1PBO035SJGZFVDMB3CWWTXBDBMEOBS&client_secret=RGWTUBG0THSZBB3TDEPJNVIA0RU50RC2IS1DHHPJ5JKC0ELB&v=20140806"
             $scope.listviewOption.dataSource.transport.options.read.url = photoUrl;
-            $scope.listviewOption.dataSource.read({ page: 1});
+            $scope.pager.page(1);
+            $scope.listviewOption.dataSource.read();
             $scope.win1.center().open();
         }
 
