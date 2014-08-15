@@ -15,7 +15,7 @@ app.controller('ListCtrl',
                 buttonCount: 5
             },
             columns: [{ 
-                field: 'venue.name', title:"Name" 
+                field: 'venue.name', title: "Name", "template": "<a ng-href='\\#/detail/#= venue.id #'>#= venue.name #</a>"
             },{ 
                 title: 'Image', "template": "<img src= #= image() #>" 
             }, {

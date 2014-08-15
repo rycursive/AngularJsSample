@@ -1,0 +1,19 @@
+﻿<div class="container bs-docs-container" ng-controller="ListCtrl">
+    <div class="row">
+        <div class="span6 pull-right" style="margin:18px">
+            <form ng-submit="submit()">
+                <div class="input-group">
+                    <input class="form-control" ng-model="country" ng-init="country='bangkok'" style="width: 400px" placeholder="city" />
+                    <button type="submit" class="btn btn-default" ng-click="ApplyFilter()">Apply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <kendo-grid options="mainGridOptions"></kendo-grid>
+    <div kendo-window="win1" k-options="windowOption">
+        <div id="loading"></div>
+        <div kendo-listview="listView" k-options="listviewOption">
+        </div>
+        <div kendo-pager="pager" k-data-source="photoDataSource"></div>
+    </div>
+</div>

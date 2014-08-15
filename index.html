@@ -9,50 +9,32 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="http://cdn.jsdelivr.net/toastr/2.0.1/toastr.css" rel="stylesheet"/>
 </head>
-<body ng-app="app">
-    <div class="container bs-docs-container" ng-controller="ListCtrl">
-        <div class="row">
-            <div class="span6 pull-right" style="margin:18px">
-                <form ng-submit="submit()" >                
-                    <div class="input-group">
-                        <input class="form-control" ng-model="country" ng-init="country='bangkok'" style="width: 400px" placeholder="city"/>
-                        <button type="submit" class="btn btn-default" ng-click="ApplyFilter()">Apply</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <kendo-grid options="mainGridOptions"></kendo-grid>
-        <div kendo-window="win1" k-options="windowOption">
-            <div id="loading"></div>
-            <div kendo-listview="listView" k-options="listviewOption">                
-            </div>
-            <div kendo-pager="pager" k-data-source="photoDataSource"></div>
-        </div>
-    </div>
-    <script src="http://cdn.kendostatic.com/2014.2.716/js/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/toastr/2.0.1/toastr.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/Controller/ListCtrl.js"></script>
-    <script src="js/Service/foursquareDataSource.js"></script>
-    <script src="js/Service/countryDataSource.js"></script>
-    <script src="js/Service/photoDataSource.js"></script>
-    <script type="text/x-kendo-template" id="detailTemplate">
+    <body ng-app="app">
+        <div ng-view></div>
+        <script src="http://cdn.kendostatic.com/2014.2.716/js/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.min.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/toastr/2.0.1/toastr.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/Controller/ListCtrl.js"></script>
+        <script src="js/Controller/DetailCtrl.js"></script>
+        <script src="js/Service/foursquareDataSource.js"></script>
+        <script src="js/Service/photoDataSource.js"></script>
+        <script src="js/Service/venueService.js"></script>
+        <script type="text/x-kendo-template" id="detailTemplate">
                 # if ((typeof(tips) != 'undefined') && (tips.length > 0)) { #
                     #= tips[0].text #
                 # } else { #
                     ''
                 # } #
-    </script>
-    <script type="text/x-kendo-angular-template" id="listViewTemplate">
-
+        </script>
+        <script type="text/x-kendo-angular-template" id="listViewTemplate">
         <div class="col-md-2" style="margin: 2px;">
             <img ng-src="#= image() #" alt=" {{dataItem.ProductName}} image" />             
         </div>
-
-    </script>
-</body>
+        </script>
+    </body>
 </html>

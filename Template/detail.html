@@ -1,0 +1,35 @@
+﻿
+
+<div class="container">
+    <div ng-show="loading">Loading...</div>
+    <div class="row" ng-hide="loading">
+        <div class="col-md-9">
+            <h1>{{venue.name}}</h1>
+            <button type="button" class="btn btn-primary pull-right clear-fix" ng-click="back()">Back</button>
+            <h3>Like</h3>
+            <p>{{venue.likes.count}}</p>
+            <h3>TimeZone</h3>
+            <p>{{venue.timeZone}}</p>
+            <div>
+                <h3>Tag</h3>
+                <ul>
+                    <li ng-repeat="tag in venue.tags">
+                        {{tag}}
+                    </li>
+                    <li ng-if="venue.tags == 0">
+                        <strong>No results found...</strong>
+                    </li>
+                </ul>
+            </div>
+            <h3>location</h3>
+            <p>
+                <span>{{venue.location.address}}</span>
+                <span>{{venue.location.crossStreet}}</span>
+                <span>{{venue.location.city}}</span>
+                <span>{{venue.location.postalCode}}</span>
+                <span>{{venue.location.country}}</span>
+            </p>
+        </div>
+    </div>
+</div>
+
